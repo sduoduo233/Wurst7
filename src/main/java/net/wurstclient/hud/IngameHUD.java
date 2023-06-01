@@ -7,6 +7,7 @@
  */
 package net.wurstclient.hud;
 
+import net.wurstclient.hacks.AntiAntiXrayHack;
 import org.lwjgl.opengl.GL11;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -22,6 +23,7 @@ public final class IngameHUD implements GUIRenderListener
 	private final WurstLogo wurstLogo = new WurstLogo();
 	private final HackListHUD hackList = new HackListHUD();
 	private TabGui tabGui;
+	private AntiAntiXrayHack antiAntiXrayHack;
 	
 	@Override
 	public void onRenderGUI(MatrixStack matrixStack, float partialTicks)

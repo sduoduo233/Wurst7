@@ -112,25 +112,32 @@ public final class AltManagerScreen extends Screen
 			ConfirmScreen screen = new ConfirmScreen(callback, title, message);
 			client.setScreen(screen);
 		}
-		
+
+		// line 1
 		addDrawableChild(useButton =
 			ButtonWidget.builder(Text.literal("Login"), b -> pressLogin())
-				.dimensions(width / 2 - 154, height - 52, 100, 20).build());
+					.dimensions(width / 2 - 154, height - 52, 75, 20).build());
 		
 		addDrawableChild(ButtonWidget
 			.builder(Text.literal("Direct Login"),
 				b -> client.setScreen(new DirectLoginScreen(this)))
-			.dimensions(width / 2 - 50, height - 52, 100, 20).build());
+				.dimensions(width / 2 - 76, height - 52, 74, 20).build());
 		
 		addDrawableChild(ButtonWidget
 			.builder(Text.literal("Add"),
 				b -> client.setScreen(new AddAltScreen(this, altManager)))
-			.dimensions(width / 2 + 54, height - 52, 100, 20).build());
-		
+				.dimensions(width / 2 + 2, height - 52, 74, 20).build());
+
+		addDrawableChild(ButtonWidget
+				.builder(Text.literal("Add MS Account"),
+						b -> client.setScreen(new MSLoginScreen(this, altManager)))
+				.dimensions(width / 2 + 80, height - 52, 75, 20).build());
+
+		// line2
 		addDrawableChild(starButton =
 			ButtonWidget.builder(Text.literal("Favorite"), b -> pressFavorite())
 				.dimensions(width / 2 - 154, height - 28, 75, 20).build());
-		
+
 		addDrawableChild(editButton =
 			ButtonWidget.builder(Text.literal("Edit"), b -> pressEdit())
 				.dimensions(width / 2 - 76, height - 28, 74, 20).build());

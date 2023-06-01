@@ -10,6 +10,7 @@ package net.wurstclient.events;
 import java.util.ArrayList;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.util.math.BlockPos;
 import net.wurstclient.event.Event;
 import net.wurstclient.event.Listener;
 
@@ -21,11 +22,13 @@ public interface ShouldDrawSideListener extends Listener
 		extends Event<ShouldDrawSideListener>
 	{
 		private final BlockState state;
+		private final BlockPos blockPos;
 		private Boolean rendered;
 		
-		public ShouldDrawSideEvent(BlockState state)
+		public ShouldDrawSideEvent(BlockState state, BlockPos blockPos)
 		{
 			this.state = state;
+			this.blockPos = blockPos;
 		}
 		
 		public BlockState getState()
@@ -42,7 +45,11 @@ public interface ShouldDrawSideListener extends Listener
 		{
 			this.rendered = rendered;
 		}
-		
+
+		public BlockPos getBlockPos() {
+			return blockPos;
+		}
+
 		@Override
 		public void fire(ArrayList<ShouldDrawSideListener> listeners)
 		{
